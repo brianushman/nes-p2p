@@ -1,0 +1,57 @@
+<div class="dropdown btn-container">
+  <button class="btn btn-info dropdown-toggle" type="button" style="width: 100%;" data-toggle="dropdown">
+    <i class="fas" [ngClass]="GamepadService().player1Device.isGamepad ? 'fa-gamepad' : 'fa-keyboard'"></i>
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li *ngFor="let device of devices">
+      <a (click)="GamepadService().setPlayerDevice(device.id)">
+        <i class="fas" [ngClass]="device.isGamepad ? 'fa-gamepad' : 'fa-keyboard'" style="font-size: 17px"></i>
+        <span>{{ device.name }}</span>
+      </a>
+    </li>
+    <li>
+      <a (click)="addGamepad()">
+        <i class="fas fa-plus-square" style="font-size: 17px"></i>
+        <span>Add New Gamepad...</span>
+      </a>
+    </li>
+    <li>
+      <a (click)="setup()">
+        <i class="fas fa-plus-square" style="font-size: 17px"></i>
+        <span>Setup...</span>
+      </a>
+    </li>
+  </ul>
+</div>
+<div class="controller-setup-backdrop" [hidden]="!isActive"></div>
+<div class="controller-setup-modal" *ngIf="isActive">
+  <div class="alert alert-warning" [hidden]="cookiesEnabled" style="margin-bottom: 0;">
+    <strong>Warning!</strong> Cookies are disabled. Changes will not be saved.
+  </div>
+  <select class="form-control">
+    <option *ngFor="let device of devices" [value]="GamepadService().player1Device.id">
+      <i class="fas" [ngClass]="device.isGamepad ? 'fa-gamepad' : 'fa-keyboard'" style="font-size: 17px"></i>
+      <span>{{ device.name }}</span>
+    </option>
+  </select>
+  <div class="list-group">
+    <a *ngFor="let key of keyMappingValues()" class="list-group-item pull-left" [ngClass]="{ 'active': keyValueIndex(key) == currentBtn }">
+      <div class="pull-left">
+        <img [src]="keyValueIndex(key) == currentBtn ? keyIconAlt(key) : keyIcon(key)" height="28"> &nbsp;
+        <span>{{keyName(key)}}</span>
+      </div>
+      <div class="pull-right">
+        <span>{{keyValueString(key)}}</span>
+      </div>
+    </a>
+  </div>
+  <div class="col-sm-12 form-group">
+    <div class="col-sm-6 form-group">
+        <button type="button" class="btn-large form-control" (click)="save()" [disabled]="currentBtn >= 0" [ngClass]="currentBtn >= 0 ? 'btn btn-default' : 'btn btn-primary'">Save</button>
+      </div>
+    <div class="col-sm-6 form-group">
+      <button type="button" class="btn btn-default btn-large form-control" (click)="close()">Close</button>
+    </div>
+  </div>
+</div>

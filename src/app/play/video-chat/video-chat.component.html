@@ -1,0 +1,30 @@
+<div class="video-container">
+    <div class="video-window top-window" [hidden]="!local_video_enabled">
+        <video id="host-video" width="170" height="96" autoplay></video>
+        <div class="video-controls">
+            <button type="button" class="btn btn-white" (click)="enableAudio(false);"><img class="icn" [ngClass]="local_audio_enabled ? 'audio-on' : 'audio-off'"></button>
+            <button type="button" class="btn btn-white" (click)="enableVideo(false);"><img class="icn" [ngClass]="local_video_enabled ? 'video-on' : 'video-off'"></button>
+        </div>
+    </div>
+    <div class="video-window display host-display top-window" *ngIf="!local_video_enabled">
+        <p>{{localName}}</p>
+        <div class="video-controls">
+            <button type="button" class="btn btn-white" (click)="enableAudio(true);"><i class="icn" [ngClass]="local_audio_enabled ? 'audio-on' : 'audio-off'"></i></button>
+            <button type="button" class="btn btn-white" (click)="enableVideo(true);"><i class="icn" [ngClass]="local_video_enabled ? 'video-on' : 'video-off'"></i></button>
+        </div>
+    </div>
+    <div class="video-window" [hidden]="!remote_video_enabled">
+        <video id="peer-video" width="170" height="96" autoplay></video>
+        <div class="static-controls">
+            <button type="button" class="btn btn-white" *ngIf="!remote_video_enabled"><img class="icn" src="/assets/images/video-off.png"></button>
+            <button type="button" class="btn btn-white" *ngIf="!remote_audio_enabled"><img class="icn" src="/assets/images/audio-off.png"></button>
+        </div>
+    </div>
+    <div class="video-window display peer-display" *ngIf="!remote_video_enabled">
+        <p>{{remoteName}}</p>
+        <div class="static-controls">
+            <button type="button" class="btn btn-white" *ngIf="!remote_video_enabled"><img class="icn" src="/assets/images/video-off.png"></button>
+            <button type="button" class="btn btn-white" *ngIf="!remote_audio_enabled"><img class="icn" src="/assets/images/audio-off.png"></button>
+        </div>
+    </div>
+</div>

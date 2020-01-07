@@ -1,0 +1,42 @@
+:host {
+    height: 35px;
+}
+
+.btn-container {
+    width: 64px;
+    height: 100%;
+}
+
+.btn-container > button {
+    height: 100%;
+}
+
+.controller-setup-backdrop {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.6;
+    background-color: #555;
+    z-index: 100;
+}
+
+.controller-setup-modal {
+    background-color: white;
+    position: fixed;
+    top: 20px;
+    width: 500px;
+    border: 1px solid #aaa;
+    z-index: 100;
+    margin: 30px 50px;
+    border-radius: 3px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 101;
+}
+
+.list-group > a {
+    width: 100%;
+    padding: 6px 15px;
+}

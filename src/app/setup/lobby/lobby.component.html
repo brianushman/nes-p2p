@@ -1,0 +1,34 @@
+<toaster-container></toaster-container>
+<div class="col-sm-12" style="margin: 20px 0">
+  <div class="col-sm-12" *ngIf="!lobby_active">
+    <div class="col-sm-12" style="margin-bottom: 15px; text-align: center;">
+      <label>Enter a User Name</label>
+      <input type="text" [(ngModel)]="username">
+      <button type="button" class="btn btn-md btn-primary" (click)="join()" [disabled]="username == undefined || username.length == 0">Join Lobby</button>
+    </div>
+  </div>
+  <div class="col-sm-12" *ngIf="lobby_active">
+    <div class="col-sm-12" style="margin-bottom: 15px; text-align: center;">
+      <label>Select a User and Game to Send Invitation</label>
+      <button type="button" class="btn btn-md btn-primary" (click)="send_invitation()" [disabled]="!selected_rom || !selected_opponent">Send Invitation</button>
+    </div>
+  </div>
+  <div class="row" *ngIf="lobby_active">
+    <div class="col-sm-3 offset-sm-2">
+      <div class="user-list-container">
+          <div *ngIf="users.length == 0" style="text-align: center; vertical-align: middle">
+            <p>Currently, no users available.</p>
+          </div>
+        <div class="user-list list-group" *ngFor="let user of users" style="margin-bottom: 0">
+          <a class="list-group-item list-group-item-action" (click)="selected_opponent = user" [ngClass]="{ 'active': user == selected_opponent }">{{user.username}}</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-7">
+      <game-select (onSelected)="romChanged($event)" [compact]="true"></game-select>
+    </div>
+  </div>
+  <div class="col-sm-12" *ngIf="!lobby_active" style="text-align: center">
+    <p>Enter a username above and click the "Join Lobby" button to find other players.</p>
+  </div>
+</div>

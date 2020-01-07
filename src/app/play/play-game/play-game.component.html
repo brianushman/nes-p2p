@@ -1,0 +1,12 @@
+<div class="row play-game-container">
+  <div class="col-sm-6 offset-sm-3" *ngIf="isOffline || (!isOffline && isHost)">
+    <game-controls class="game-control" (quit)="player_quit()" (muted)="game_muted($event)" (fullscreen)="game_fullscreen($event)"></game-controls>
+    <jsnes [url]="romUrl()"></jsnes>
+  </div>
+  <div class="col-sm-6 offset-sm-3" *ngIf="!isHost">  
+    <game-controls class="game-control" (quit)="player_quit()" (muted)="game_muted($event)" (fullscreen)="game_fullscreen($event)"></game-controls>
+    <ws-canvas></ws-canvas>
+  </div>
+  <video-chat *ngIf="!isOffline" [localName]="localname()" [remoteName]="remotename()" (onChatUpdated)="chatSettingsUpdated($event)"></video-chat>
+  <mobile-gamepad class="navbar navbar-default navbar-fixed-bottom" *ngIf="isMobile"></mobile-gamepad>
+</div>

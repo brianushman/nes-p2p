@@ -1,0 +1,4 @@
+<div class="col-sm-12">
+    <button type="button" class="btn btn-primary offset-sm-3 col-sm-6 mb-2 mt-2" [disabled]="selected_rom == null" (click)="play()">Play Game</button>
+    <game-select (onSelected)="romChanged($event)"></game-select>    
+</div>

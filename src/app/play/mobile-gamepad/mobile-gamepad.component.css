@@ -1,0 +1,80 @@
+:host {
+    display: block;
+}
+.full {
+    width: 100%;
+}
+.half {
+    width: 50%;
+}
+.quarter {
+    width: 25%;
+}
+
+.third {
+    width: 33.333%;
+}
+
+.btn-a,.btn-b {
+    border-radius: 50%;
+}
+
+.btn-start,.btn-select {
+    border-radius: 8px;
+}
+
+.btn-gamepad {
+    width: 100%;
+    background-color: white;
+    border:1px solid black;
+    text-align: center;
+    opacity: 0.5;
+    float: right;
+}
+
+.btn-gamepad > span {
+    font-size: 30px;
+    vertical-align: middle;
+}
+
+.btn-gamepad.pressed,.d-pad.show.pressed {
+    opacity: 0.7
+}
+
+.d-pad {
+    float: left;
+}
+
+.d-pad.show {
+    opacity: 0.5;
+    background-color: white;
+}
+
+.d-pad-grid div {
+    padding: 0;
+    margin: 0;
+}
+
+.d-pad-top {
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.d-pad-right {
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.d-pad-bottom {
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+}
+
+.d-pad-left {
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+}

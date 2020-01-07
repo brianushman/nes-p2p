@@ -1,0 +1,178 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+ "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg id="brackets" version="1.1" viewBox="0 0 300 300" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    
+    <rect height="6" class="red" width="6" x="24" y="0" style="fill:#ff2500" />
+    <rect height="6" class="red" width="6" x="30" y="0" style="fill:#ff2500" />
+    <rect height="6" class="red" width="6" x="36" y="0" style="fill:#ff2500" />
+    <rect height="6" class="red" width="6" x="42" y="0" style="fill:#ff2500" />
+    <rect height="6" class="red" width="6" x="48" y="0" style="fill:#ff2500" />
+    
+    <rect height="6" class="red" width="6" x="18" y="6" style="fill:#ff2500"/>
+    <rect height="6" class="red" width="6" x="24" y="6" style="fill:#ff2500"/>
+    <rect height="6" class="red" width="6" x="30" y="6" style="fill:#ff2500"/>
+    <rect height="6" class="red" width="6" x="36" y="6" style="fill:#ff2500"/>
+    <rect height="6" class="red" width="6" x="42" y="6" style="fill:#ff2500"/>
+    <rect height="6" class="red" width="6" x="48" y="6" style="fill:#ff2500"/>
+    <rect height="6" class="red" width="6" x="54" y="6" style="fill:#ff2500"/>
+    <rect height="6" class="red" width="6" x="60" y="6" style="fill:#ff2500"/>
+    <rect height="6" class="red" width="6" x="66" y="6" style="fill:#ff2500"/>
+    
+    <rect height="6" class="black" width="6" x="18" y="12" style="fill:#2b1100"/>
+    <rect height="6" class="black" width="6" x="24" y="12" style="fill:#2b1100"/>
+    <rect height="6" class="black" width="6" x="30" y="12" style="fill:#2b1100"/>
+    <rect height="6" class="skin" width="6" x="36" y="12" style="fill:#ffb481"/>
+    <rect height="6" class="skin" width="6" x="42" y="12" style="fill:#ffb481"/>
+    <rect height="6" class="black" width="6" x="48" y="12" style="fill:#2b1100"/>
+    <rect height="6" class="skin" width="6" x="54" y="12" style="fill:#ffb481"/>
+    
+    <rect height="6" class="black" width="6" x="12" y="18" style="fill:#2b1100"/>
+    <rect height="6" class="skin" width="6" x="18" y="18" style="fill:#ffb481"/>
+    <rect height="6" class="black" width="6" x="24" y="18" style="fill:#2b1100"/>
+    <rect height="6" class="skin" width="6" x="30" y="18" style="fill:#ffb481"/>
+    <rect height="6" class="skin" width="6" x="36" y="18" style="fill:#ffb481"/>
+    <rect height="6" class="skin" width="6" x="42" y="18" style="fill:#ffb481"/>
+    <rect height="6" class="black" width="6" x="48" y="18" style="fill:#2b1100"/>
+    <rect height="6" class="skin" width="6" x="54" y="18" style="fill:#ffb481"/>
+    <rect height="6" class="skin" width="6" x="60" y="18" style="fill:#ffb481"/>
+    <rect height="6" class="skin" width="6" x="66" y="18" style="fill:#ffb481"/>
+    
+    <rect height="6" class="black" width="6" x="12" y="24" style="fill:#2b1100"/>
+    <rect height="6" class="skin" width="6" x="18" y="24" style="fill:#ffb481"/>
+    <rect height="6" class="black" width="6" x="24" y="24" style="fill:#2b1100"/>
+    <rect height="6" class="black" width="6" x="30" y="24" style="fill:#2b1100"/>
+    <rect height="6" class="skin" width="6" x="36" y="24" style="fill:#ffb481"/>
+    <rect height="6" class="skin" width="6" x="42" y="24" style="fill:#ffb481"/>
+    <rect height="6" class="skin" width="6" x="48" y="24" style="fill:#ffb481"/>
+    <rect height="6" class="black" width="6" x="54" y="24" style="fill:#2b1100"/>
+    <rect height="6" class="skin" width="6" x="60" y="24" style="fill:#ffb481"/>
+    <rect height="6" class="skin" width="6" x="66" y="24" style="fill:#ffb481"/>
+    <rect height="6" class="skin" width="6" x="72" y="24" style="fill:#ffb481"/>
+
+    <rect height="6" class="black" width="6" x="12" y="30" style="fill:#2b1100"/>
+    <rect height="6" class="black" width="6" x="18" y="30" style="fill:#2b1100"/>
+    <rect height="6" class="skin" width="6" x="24" y="30" style="fill:#ffb481"/>
+    <rect height="6" class="skin" width="6" x="30" y="30" style="fill:#ffb481"/>
+    <rect height="6" class="skin" width="6" x="36" y="30" style="fill:#ffb481"/>
+    <rect height="6" class="skin" width="6" x="42" y="30" style="fill:#ffb481"/>
+    <rect height="6" class="black" width="6" x="48" y="30" style="fill:#2b1100"/>
+    <rect height="6" class="black" width="6" x="54" y="30" style="fill:#2b1100"/>
+    <rect height="6" class="black" width="6" x="60" y="30" style="fill:#2b1100"/>
+    <rect height="6" class="black" width="6" x="66" y="30" style="fill:#2b1100"/>
+    
+    <rect height="6" class="black" width="6" x="12" y="30" style="fill:#2b1100"/>
+    <rect height="6" class="black" width="6" x="18" y="30" style="fill:#2b1100"/>
+    <rect height="6" class="skin" width="6" x="24" y="30" style="fill:#ffb481"/>
+    <rect height="6" class="skin" width="6" x="30" y="30" style="fill:#ffb481"/>
+    <rect height="6" class="skin" width="6" x="36" y="30" style="fill:#ffb481"/>
+    <rect height="6" class="skin" width="6" x="42" y="30" style="fill:#ffb481"/>
+    <rect height="6" class="black" width="6" x="48" y="30" style="fill:#2b1100"/>
+    <rect height="6" class="black" width="6" x="54" y="30" style="fill:#2b1100"/>
+    <rect height="6" class="black" width="6" x="60" y="30" style="fill:#2b1100"/>
+    <rect height="6" class="black" width="6" x="66" y="30" style="fill:#2b1100"/>
+
+    <rect height="6" class="skin" width="6" x="24" y="36" style="fill:#ffb481"/>
+    <rect height="6" class="skin" width="6" x="30" y="36" style="fill:#ffb481"/>
+    <rect height="6" class="skin" width="6" x="36" y="36" style="fill:#ffb481"/>
+    <rect height="6" class="skin" width="6" x="42" y="36" style="fill:#ffb481"/>
+    <rect height="6" class="skin" width="6" x="48" y="36" style="fill:#ffb481"/>
+    <rect height="6" class="skin" width="6" x="54" y="36" style="fill:#ffb481"/>
+    <rect height="6" class="skin" width="6" x="60" y="36" style="fill:#ffb481"/>
+  
+    <rect height="6" class="blue" width="6" x="18" y="42" style="fill:#0432ff"/>
+    <rect height="6" class="blue" width="6" x="24" y="42" style="fill:#0432ff"/>
+    <rect height="6" class="red" width="6" x="30" y="42" style="fill:#ff2500"/>
+    <rect height="6" class="blue" width="6" x="36" y="42" style="fill:#0432ff"/>
+    <rect height="6" class="blue" width="6" x="42" y="42" style="fill:#0432ff"/>
+    <rect height="6" class="blue" width="6" x="48" y="42" style="fill:#0432ff"/>
+    
+    <rect height="6" class="blue" width="6" x="12" y="48" style="fill:#0432ff"/>
+    <rect height="6" class="blue" width="6" x="18" y="48" style="fill:#0432ff"/>
+    <rect height="6" class="blue" width="6" x="24" y="48" style="fill:#0432ff"/>
+    <rect height="6" class="red" width="6" x="30" y="48" style="fill:#ff2500"/>
+    <rect height="6" class="blue" width="6" x="36" y="48" style="fill:#0432ff"/>
+    <rect height="6" class="blue" width="6" x="42" y="48" style="fill:#0432ff"/>
+    <rect height="6" class="red" width="6" x="48" y="48" style="fill:#ff2500"/>
+    <rect height="6" class="blue" width="6" x="54" y="48" style="fill:#0432ff"/>
+    <rect height="6" class="blue" width="6" x="60" y="48" style="fill:#0432ff"/>
+    <rect height="6" class="blue" width="6" x="66" y="48" style="fill:#0432ff"/>
+    
+    <rect height="6" class="blue" width="6" x="6" y="54" style="fill:#0432ff"/>
+    <rect height="6" class="blue" width="6" x="12" y="54" style="fill:#0432ff"/>
+    <rect height="6" class="blue" width="6" x="18" y="54" style="fill:#0432ff"/>
+    <rect height="6" class="blue" width="6" x="24" y="54" style="fill:#0432ff"/>
+    <rect height="6" class="red" width="6" x="30" y="54" style="fill:#ff2500"/>
+    <rect height="6" class="blue" width="6" x="36" y="54" style="fill:#0432ff"/>
+    <rect height="6" class="blue" width="6" x="42" y="54" style="fill:#0432ff"/>
+    <rect height="6" class="red" width="6" x="48" y="54" style="fill:#ff2500"/>
+    <rect height="6" class="blue" width="6" x="54" y="54" style="fill:#0432ff"/>
+    <rect height="6" class="blue" width="6" x="60" y="54" style="fill:#0432ff"/>
+    <rect height="6" class="blue" width="6" x="66" y="54" style="fill:#0432ff"/>
+    <rect height="6" class="blue" width="6" x="72" y="54" style="fill:#0432ff"/>
+    
+    <rect height="6" class="skin" width="6" x="6" y="60" style="fill:#ffb481"/>
+    <rect height="6" class="skin" width="6" x="12" y="60" style="fill:#ffb481"/>
+    <rect height="6" class="blue" width="6" x="18" y="60" style="fill:#0432ff"/>
+    <rect height="6" class="blue" width="6" x="24" y="60" style="fill:#0432ff"/>
+    <rect height="6" class="red" width="6" x="30" y="60" style="fill:#ff2500"/>
+    <rect height="6" class="red" width="6" x="36" y="60" style="fill:#ff2500"/>
+    <rect height="6" class="red" width="6" x="42" y="60" style="fill:#ff2500"/>
+    <rect height="6" class="red" width="6" x="48" y="60" style="fill:#ff2500"/>
+    <rect height="6" class="blue" width="6" x="54" y="60" style="fill:#0432ff"/>
+    <rect height="6" class="blue" width="6" x="60" y="60" style="fill:#0432ff"/>
+    <rect height="6" class="skin" width="6" x="66" y="60" style="fill:#ffb481"/>
+    <rect height="6" class="skin" width="6" x="72" y="60" style="fill:#ffb481"/>
+
+    <rect height="6" class="skin" width="6" x="6" y="66" style="fill:#ffb481"/>
+    <rect height="6" class="skin" width="6" x="12" y="66" style="fill:#ffb481"/>
+    <rect height="6" class="skin" width="6" x="18" y="66" style="fill:#ffb481"/>
+    <rect height="6" class="red" width="6" x="24" y="66" style="fill:#ff2500"/>
+    <rect height="6" class="yellow" width="6" x="30" y="66" style="fill:#fffb01"/>
+    <rect height="6" class="red" width="6" x="36" y="66" style="fill:#ff2500"/>
+    <rect height="6" class="red" width="6" x="42" y="66" style="fill:#ff2500"/>
+    <rect height="6" class="yellow" width="6" x="48" y="66" style="fill:#fffb01"/>
+    <rect height="6" class="red" width="6" x="54" y="66" style="fill:#ff2500"/>
+    <rect height="6" class="skin" width="6" x="60" y="66" style="fill:#ffb481"/>
+    <rect height="6" class="skin" width="6" x="66" y="66" style="fill:#ffb481"/>
+    <rect height="6" class="skin" width="6" x="72" y="66" style="fill:#ffb481"/>
+    
+    <rect height="6" class="skin" width="6" x="6" y="72" style="fill:#ffb481"/>
+    <rect height="6" class="skin" width="6" x="12" y="72" style="fill:#ffb481"/>
+    <rect height="6" class="red" width="6" x="18" y="72" style="fill:#ff2500"/>
+    <rect height="6" class="red" width="6" x="24" y="72" style="fill:#ff2500"/>
+    <rect height="6" class="red" width="6" x="30" y="72" style="fill:#ff2500"/>
+    <rect height="6" class="red" width="6" x="36" y="72" style="fill:#ff2500"/>
+    <rect height="6" class="red" width="6" x="42" y="72" style="fill:#ff2500"/>
+    <rect height="6" class="red" width="6" x="48" y="72" style="fill:#ff2500"/>
+    <rect height="6" class="red" width="6" x="54" y="72" style="fill:#ff2500"/>
+    <rect height="6" class="red" width="6" x="60" y="72" style="fill:#ff2500"/>
+    <rect height="6" class="skin" width="6" x="66" y="72" style="fill:#ffb481"/>
+    <rect height="6" class="skin" width="6" x="72" y="72" style="fill:#ffb481"/>
+    
+    <rect height="6" class="red" width="6" x="18" y="78" style="fill:#ff2500"/>
+    <rect height="6" class="red" width="6" x="24" y="78" style="fill:#ff2500"/>
+    <rect height="6" class="red" width="6" x="30" y="78" style="fill:#ff2500"/>
+    <rect height="6" class="red" width="6" x="48" y="78" style="fill:#ff2500"/>
+    <rect height="6" class="red" width="6" x="54" y="78" style="fill:#ff2500"/>
+    <rect height="6" class="red" width="6" x="60" y="78" style="fill:#ff2500"/>
+    
+    <rect height="6" class="black" width="6" x="12" y="84" style="fill:#2b1100"/>
+    <rect height="6" class="black" width="6" x="18" y="84" style="fill:#2b1100"/>
+    <rect height="6" class="black" width="6" x="24" y="84" style="fill:#2b1100"/>
+    <rect height="6" class="black" width="6" x="54" y="84" style="fill:#2b1100"/>
+    <rect height="6" class="black" width="6" x="60" y="84" style="fill:#2b1100"/>
+    <rect height="6" class="black" width="6" x="66" y="84" style="fill:#2b1100"/>
+    
+    <rect height="6" class="black" width="6" x="6" y="90" style="fill:#2b1100"/>
+    <rect height="6" class="black" width="6" x="12" y="90" style="fill:#2b1100"/>
+    <rect height="6" class="black" width="6" x="18" y="90" style="fill:#2b1100"/>
+    <rect height="6" class="black" width="6" x="24" y="90" style="fill:#2b1100"/>
+    <rect height="6" class="black" width="6" x="54" y="90" style="fill:#2b1100"/>
+    <rect height="6" class="black" width="6" x="60" y="90" style="fill:#2b1100"/>
+    <rect height="6" class="black" width="6" x="66" y="90" style="fill:#2b1100"/>
+    <rect height="6" class="black" width="6" x="72" y="90" style="fill:#2b1100"/>
+    
+  </g>
+</svg>

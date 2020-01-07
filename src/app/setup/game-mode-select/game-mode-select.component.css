@@ -1,0 +1,12 @@
+:host {
+    display: inline-block;
+    width: 100%;
+    height: calc(100% - 37px);
+    margin: 0;
+    background-color: #2f4050;
+}
+
+.center {
+    text-align: center;
+    justify-content: center;
+}

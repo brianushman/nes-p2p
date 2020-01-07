@@ -1,0 +1,45 @@
+<div class="navbar-header" style="width: 100%">
+  <div class="full">
+    <div class="quarter d-pad-grid" style="float: left">
+      <div class="row">
+        <div class="d-pad d-pad-top-left quarter"></div>
+        <div class="d-pad d-pad-top quarter show" [ngClass]="{ 'pressed' : pressed(buttonEnums.Up) || pressed(buttonEnums.LeftUp) || pressed(buttonEnums.RightUp) }"></div>
+        <div class="d-pad d-pad-top-right quarter"></div>
+      </div>
+      <div class="row">
+        <div class="d-pad d-pad-left quarter show" [ngClass]="{ 'pressed' : pressed(buttonEnums.Left) || pressed(buttonEnums.LeftDown) || pressed(buttonEnums.LeftUp) }"></div>
+        <div class="d-pad d-pad-middle quarter show"></div>
+        <div class="d-pad d-pad-right quarter show" [ngClass]="{ 'pressed' : pressed(buttonEnums.Right) || pressed(buttonEnums.RightDown) || pressed(buttonEnums.RightUp) }"></div>
+      </div>
+      <div class="row">
+        <div class="d-pad d-pad-bottom-left quarter"></div>
+        <div class="d-pad d-pad-bottom quarter show" [ngClass]="{ 'pressed' : pressed(buttonEnums.Down) || pressed(buttonEnums.LeftDown) || pressed(buttonEnums.RightDown) }"></div>
+        <div class="d-pad d-pad-bottom-right quarter"></div>
+      </div>
+    </div>
+    <div class="quarter" style="margin-top: 15px; float: right;">
+      <div class="half pull-right">
+        <div class="btn-gamepad btn-start" [ngClass]="{ 'pressed' : pressed(buttonEnums.Start) }">
+          <span>START</span>
+        </div>
+      </div>
+      <div class="half pull-right">
+        <div class="btn-gamepad btn-select" [ngClass]="{ 'pressed' : pressed(buttonEnums.Select) }">
+          <span>SELECT</span>
+        </div>
+      </div>
+      <div class="full" style="margin-top: 20px">
+        <div class="half pull-right">
+          <div class="btn-gamepad btn-a" [ngClass]="{ 'pressed' : pressed(buttonEnums.A) }">
+            <span>A</span>
+          </div>
+        </div>
+        <div class="half pull-right">
+          <div class="btn-gamepad btn-b" [ngClass]="{ 'pressed' : pressed(buttonEnums.B) }">
+            <span>B</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="col-xs-12 inline-block">
+  <div class="col-xs-12 center">
+    <div style="display: inline-block">
+      <div class="col-xs-12 input-group mb-3">
+        <input type="text" placeholder="Filter" class="form-control list-filter-input glyphicon glyphicon-filter" [(ngModel)]="filter" (input)="filterChanged($event.target.value)">
+        <div class="input-group-append">
+          <controller-select></controller-select>
+        </div>
+      </div>  
+      <div class="alphabet-index">
+        <span *ngFor="let letter of alphabet" [ngClass]="AlphabetIndexStateClass(letter)" (click)="MoveListToLetter(letter)">{{letter}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 d-sm-none">
+    <div class="rom-list-container">
+      <div class="rom-list list-group" *ngFor="let rom of filteredRoms" style="margin-bottom: 0">
+        <a class="list-group-item list-group-item-action" (click)="RomSelected(rom)" [ngClass]="{ 'active': rom == selectedRom }">{{rom.Name}}</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 d-none d-sm-block">
+    <ngx-carousel-3d [slides]="filteredRoms" [options]="options" (changed)="currentRom = $event" class="col-12" #carousel>
+      <div *ngFor="let rom of filteredRoms; let i = index" (click)="RomSelected(rom)">
+        <ngx-carousel-3d-slide>
+          <span *ngIf="!coverImageExists(rom)" class="cover-placeholder-title">{{rom.Name}}</span>
+          <span class="label label-primary" *ngIf="rom == selectedRom">SELECTED</span>
+          <img class="slide-img" src="{{coverImageUrl(rom)}}" alt=""/>
+        </ngx-carousel-3d-slide>
+      </div>
+    </ngx-carousel-3d>
+  </div>
+</div>
