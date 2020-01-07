@@ -6,15 +6,7 @@ var Recaptcha = require('express-recaptcha');
 
 var browserPreviewTransport = require("nodemailer-browserpreview-transport");
 
-var recaptcha = new Recaptcha('6Le8q0QUAAAAAFwMl2owXx_0_27w1xjLrV7QGU9A', '6Le8q0QUAAAAAKzAl5TOUZ0BYZf4tDKo6PYhgRUD');
-
-router.post('/', /*recaptcha.middleware.verify,*/ function (req, res, next) {
-    /*if (req.recaptcha.error){
-        console.log("captcha error");
-        return;
-    }
-    console.log('successful captcha');*/
-
+router.post('/', function (req, res, next) {
     var email = req.body.email;
     var message = req.body.message;
     var name = req.body.name;
@@ -33,10 +25,6 @@ router.post('/', /*recaptcha.middleware.verify,*/ function (req, res, next) {
     };
 
     var transporter = nodemailer.createTransport(options);
-    /*var options = {
-        dir: './preview'
-    };
-    var transporter = nodemailer.createTransport(browserPreviewTransport(options));*/
 
     transporter.use('compile', hbs({
         viewPath: 'views',

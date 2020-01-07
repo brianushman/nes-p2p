@@ -5,7 +5,6 @@
 
 export const environment = {
   production: false,
-  recaptcha_site_key: '6Le8q0QUAAAAAFwMl2owXx_0_27w1xjLrV7QGU9A',
   peerjs_url: 'localhost',
   peerjs_port: 9000,
   peerjs_path: '/nes',
