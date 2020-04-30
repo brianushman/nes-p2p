@@ -1,6 +1,6 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PopoverModule } from 'ngx-popover';
+import { PopoverModule } from "ngx-smart-popover";
 
 import { NotificationService } from '../services/notification.service';
 import { GameDetailsService } from '../services/game-details.service';

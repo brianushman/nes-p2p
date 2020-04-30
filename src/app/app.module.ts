@@ -3,7 +3,6 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from "@angular/router";
-import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { DeviceDetectorModule } from 'ngx-device-detector';
 //import { RecaptchaModule } from 'ng2-recaptcha';
 
@@ -13,6 +12,7 @@ import { SetupModule } from './setup/setup.module';
 import { PlayModule } from './play/play.module';
 import { CommonNesModule } from './common-nes/common-nes.module';
 import { AboutComponent } from './about/about.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -26,9 +26,9 @@ import { AboutComponent } from './about/about.component';
     SetupModule,
     PlayModule,
     CommonNesModule,
-    AngularFontAwesomeModule,
     DeviceDetectorModule.forRoot(),
     RouterModule.forRoot(ROUTES),
+    FontAwesomeModule,
     //RecaptchaModule.forRoot()
   ],
   bootstrap: [AppComponent],

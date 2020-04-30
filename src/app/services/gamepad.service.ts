@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Observable } from 'rxjs/Rx';
-import { CookieService, CookieOptions } from 'ngx-cookie';
+import { BehaviorSubject, Observable, interval } from 'rxjs';
+import { CookieService } from 'ngx-cookie-service';
 
 import { Controller } from "jsnes";
 
@@ -53,7 +52,7 @@ export class GamepadService {
             this.gamepadHash.push(false);
         }
 
-        this.scanTimer = Observable.interval(100);
+        this.scanTimer = interval(100);
         this.scanTimer.subscribe(x => { this.onGamepad() });
     }
 

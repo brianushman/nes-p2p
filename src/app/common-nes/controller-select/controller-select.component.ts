@@ -1,5 +1,5 @@
 import { Component, OnInit, HostListener  } from '@angular/core';
-import { CookieService, CookieOptions } from 'ngx-cookie';
+import { CookieService } from 'ngx-cookie-service';
 import { Controller } from "jsnes";
 import { NesModal } from '../../app.modal';
 
@@ -25,10 +25,10 @@ export class ControllerSelectComponent implements OnInit {
 
   devices: InputDevice[];
   isActive: boolean = false;
-  private cookiesEnabled: boolean = false;
-  private currentBtn: number = -1;
-  private mapping: any = {};
-  private inputMapping: InputMapping;
+  public cookiesEnabled: boolean = false;
+  public currentBtn: number = -1;
+  public mapping: any = {};
+  public inputMapping: InputMapping;
 
   constructor(
     private gamepadService: GamepadService,
@@ -39,7 +39,7 @@ export class ControllerSelectComponent implements OnInit {
 
   ngOnInit() {
     var cookieValue = "a@92sk12";
-    this.cookieService.put("nesp2p-test", cookieValue);
+    this.cookieService.set("nesp2p-test", cookieValue);
     this.cookiesEnabled = (this.cookieService.get("nesp2p-test") == cookieValue);
     this.gamepadService.connect();
     this.devices = this.gamepadService.availableDevices();
@@ -74,8 +74,7 @@ export class ControllerSelectComponent implements OnInit {
   }
 
   save() {
-    let cookieOptions = { expires: new Date(new Date().getFullYear() + 20, 1, 1) } as CookieOptions;
-    this.cookieService.put("nesp2p-controller-mapping", JSON.stringify(this.invertMap(this.mapping)), cookieOptions);
+    this.cookieService.set("nesp2p-controller-mapping", JSON.stringify(this.invertMap(this.mapping)), new Date(new Date().getFullYear() + 20, 1, 1));
     this.gamepadService.loadInputMapping();
     this.isActive = false;
   }

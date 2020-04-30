@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as io from 'socket.io-client';
-import { Observable } from 'rxjs/Observable';
+import { Observable, Subject } from 'rxjs';
 import * as Rx from 'rxjs/Rx';
 
 import { environment } from '../../environments/environment';
@@ -19,7 +19,7 @@ export class NotificationService {
       return this.id;
   }
 
-  connect(): Rx.Subject<MessageEvent> {
+  connect(): any {
     if(environment.production) {
       this.socket = io(environment.socketio, { secure: true, reconnect: true, rejectUnauthorized : false });
     }
@@ -50,7 +50,7 @@ export class NotificationService {
 
     // we return our Rx.Subject which is a combination
     // of both an observer and observable.
-    return Rx.Subject.create(observer, observable);
+    return Subject.create(observer, observable);
   }
 
   disconnect() {

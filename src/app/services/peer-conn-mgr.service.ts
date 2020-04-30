@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { BehaviorSubject } from 'rxjs';
 
-import * as Peer from 'peerjs';
+//import * as Peer from 'peerjs';
+import { Peer } from "peerjs";
 import { environment } from '../../environments/environment';
-import { error } from 'util';
 
 @Injectable()
 export class PeerConnectionMgrService {
@@ -34,9 +34,20 @@ export class PeerConnectionMgrService {
     this.key_cam = this.generate_peer_id();
 
     var config = {'iceServers': [
-      { url: 'stun:stun1.l.google.com:19302' },
-      { url: 'stun:69.243.176.245:3478', credential: 'wTWPlnm', username: 'nes' },
-      { url: 'turn:69.243.176.245:3478', credential: 'wTWPlnm', username: 'nes' }
+      {
+        urls: [ "stun:us-turn3.xirsys.com" ]
+        }, {
+            username: "wx-AvQEZ8sZzzwuX6TAqV6UenC9_JeNEkK1tlD-hHC3kFtHmEmchTDUpAbROl6tLAAAAAF6qQclidXNobWFu",
+            credential: "3ad1322e-8a90-11ea-b626-2ab41d49acc5",
+            urls: [
+                "turn:us-turn3.xirsys.com:80?transport=udp",
+                "turn:us-turn3.xirsys.com:3478?transport=udp",
+                "turn:us-turn3.xirsys.com:80?transport=tcp",
+                "turn:us-turn3.xirsys.com:3478?transport=tcp",
+                "turns:us-turn3.xirsys.com:443?transport=tcp",
+                "turns:us-turn3.xirsys.com:5349?transport=tcp"
+            ]
+        }
     ]};
     this.peer_game = new Peer(this.key_game, { config: config, host: environment.peerjs_url, port: environment.peerjs_port, path: environment.peerjs_path });
     this.peer_data = new Peer(this.key_data, { config: config, host: environment.peerjs_url, port: environment.peerjs_port, path: environment.peerjs_path });
@@ -46,18 +57,18 @@ export class PeerConnectionMgrService {
     this.peer_data.on('connection', function (conn) {
       conn.on('data', data => {
         this.onDataReceived(data);
-      }, this);
-    }, this);
+      });
+    });
 
     // listen for all game connections
     this.peer_game.on('call', function(call) {
       this.onGameReceived(call);
-    }, this);
+    });
 
     // listen for all webcam connections
     this.peer_cam.on('call', function(call) {
       this.onCamReceived(call);
-    }, this);
+    });
   }
 
   GetKey(type: ConnectionType): string {

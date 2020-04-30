@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, AfterViewInit, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, Subject } from 'rxjs/Rx';
+import { Observable, Subject } from 'rxjs';
 import { GameSelectComponent } from '../game-select/game-select.component';
 import * as io from 'socket.io-client';
 import { NesModal } from '../../app.modal';
@@ -24,10 +24,10 @@ import { environment } from '../../../environments/environment';
 export class LobbyComponent implements OnInit, OnDestroy, AfterViewInit {
 
   private socket;
-  private username: string;
+  public username: string;
   lobby_active: boolean = false;
-  private selected_rom: GameModel;
-  private selected_opponent: UserDetailModel;
+  public selected_rom: GameModel;
+  public selected_opponent: UserDetailModel;
   messages: Subject<any>;
     
   users:UserDetailModel[] = [];

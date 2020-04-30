@@ -1,23 +1,46 @@
-dist/
-node_modules/
-roms/
-covers/
-express/preview/
+# See http://help.github.com/ignore-files/ for more about ignoring files.
 
-# User-specific files
-*.suo
-*.user
-*.userosscache
-*.sln.docstates
+# compiled output
+/dist
+/tmp
+/out-tsc
+# Only exists if Bazel was run
+/bazel-out
 
-# User-specific files (MonoDevelop/Xamarin Studio)
-*.userprefs
+# dependencies
+/node_modules
 
-# Build results
-x64/
-x86/
-bld/
-bin/
-obj/
-[Ll]og/
-.vs/
+# profiling files
+chrome-profiler-events*.json
+speed-measure-plugin*.json
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+# System Files
+.DS_Store
+Thumbs.db

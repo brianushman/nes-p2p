@@ -1,12 +1,9 @@
-import { Component, Input, Output, SimpleChanges, EventEmitter } from '@angular/core';
+import { Component, Input, Output, SimpleChanges, EventEmitter, OnChanges } from '@angular/core';
 import { NgxCarousel3dService } from './ngx-carousel-3d.service';
 import * as jqueryProxy from 'jquery';
 const jquery = (<any>jqueryProxy).default || jqueryProxy;
 
-import { Observable } from 'rxjs/Observable';
-import { Subscription } from 'rxjs/Subscription';
-import 'rxjs/add/observable/timer';
-import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'ngx-carousel-3d',
@@ -15,8 +12,8 @@ import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
   providers: []
 })
 export class NgxCarousel3dComponent implements OnChanges {
-  @Input() options: Object;
-  @Input() slides: Array<Object>;
+  @Input() options: any;
+  @Input() slides: Array<any>;
   @Input() onBeforeChange: Function;
   @Input() onLastSlide: Function;
   @Input() onSlideChange: Function;
@@ -29,7 +26,7 @@ export class NgxCarousel3dComponent implements OnChanges {
   public percentLoaded = 0;
   private imageLocationSubscription: any;
   private autoRotation = null;
-  private carousel3d: any;
+  public carousel3d: any;
   public controls: any;
   private $wrapper = null;
   private $slides = [];
