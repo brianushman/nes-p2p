@@ -1,11 +1,11 @@
 var express = require('express');
-var http = require('http').Server(app);
+var http = require('http').createServer(app);
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-const io = require('socket.io')(http);
+var io = require('socket.io')(http);
 var PeerServer = require('peer').PeerServer;
 
 var index = require('./routes/index');
@@ -64,6 +64,11 @@ app.use(function (req, res, next) {
 
   // Pass to next layer of middleware
   next();
+});
+
+app.get('/', (req, res) => { 
+  console.log('Accepted connection!!!');
+  res.send('Hello World!');
 });
 
 app.get('/roms', function(request, response){

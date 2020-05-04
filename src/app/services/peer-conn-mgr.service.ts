@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 //import * as Peer from 'peerjs';
-import { Peer } from "peerjs";
+import Peer from "peerjs";
 import { environment } from '../../environments/environment';
 
 @Injectable()

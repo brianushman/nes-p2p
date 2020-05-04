@@ -1,4 +1,4 @@
-﻿using MySql.Data.MySqlClient;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,15 +36,15 @@ namespace HashAssets
                                                 this.server, this.database, this.username, this.password);
 
             this.connection = new MySqlConnection(connectionString);
+            this.connection.Open();
 
-            return this.connection != null;
+            return this.connection.State == System.Data.ConnectionState.Open;
         }
 
         public bool RemoveAllRoms()
         {
             try
             {
-                connection.Open();
                 using (MySqlCommand query = new MySqlCommand(string.Format("TRUNCATE TABLE {0}.roms", this.database), this.connection))
                 {
                     query.ExecuteNonQuery();

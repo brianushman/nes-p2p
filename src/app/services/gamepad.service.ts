@@ -342,7 +342,7 @@ export class InputMapping {
 
     public constructor(cookieService: CookieService) {
         var savedMapping = cookieService.get("nesp2p-controller-mapping");
-        if(savedMapping == undefined) return;
+        if(savedMapping == undefined || savedMapping.length == 0) return;
         this.keyboardMap = JSON.parse(savedMapping);
     }
 
