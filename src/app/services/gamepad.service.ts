@@ -137,8 +137,8 @@ export class InputDevice {
 export class InputMapping {
     private mapping: any = {};
     public gamepadMap = {
-        0: Controller.BUTTON_A,
-        1: Controller.BUTTON_B,
+        0: Controller.BUTTON_B,
+        1: Controller.BUTTON_A,
         8: Controller.BUTTON_SELECT,
         9: Controller.BUTTON_START,
         12: Controller.BUTTON_UP,

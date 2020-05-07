@@ -43,16 +43,6 @@ export class ControllerSelectComponent implements OnInit {
         this.devices = gamepadService.availableDevices();
         gamepadService.setPlayerDevice(this.devices[0].id);
       });
-
-      this.gamepadService.changed.subscribe(value => {
-        if(value == null) return;
-        if(value.pressed) {
-          console.log(`DOWN - Player ${value.player}, Button ${value.button}`);
-        }
-        else {
-          console.log(`UP - Player ${value.player}, Button ${value.button}`);
-        }
-      });
   }
 
   ngOnInit() {
