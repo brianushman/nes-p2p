@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener  } from '@angular/core';
+import { Component, OnInit, HostListener, Renderer2  } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Controller } from "jsnes";
 import { NesModal } from '../../app.modal';
@@ -32,9 +32,27 @@ export class ControllerSelectComponent implements OnInit {
 
   constructor(
     private gamepadService: GamepadService,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private renderer: Renderer2
   ) {
     this.inputMapping = new InputMapping(this.cookieService);
+
+    gamepadService.connect();
+
+      renderer.listen('window', 'gamepadconnected', (event) => {
+        this.devices = gamepadService.availableDevices();
+        gamepadService.setPlayerDevice(this.devices[0].id);
+      });
+
+      this.gamepadService.changed.subscribe(value => {
+        if(value == null) return;
+        if(value.pressed) {
+          console.log(`DOWN - Player ${value.player}, Button ${value.button}`);
+        }
+        else {
+          console.log(`UP - Player ${value.player}, Button ${value.button}`);
+        }
+      });
   }
 
   ngOnInit() {

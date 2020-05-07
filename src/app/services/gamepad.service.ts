@@ -69,7 +69,7 @@ export class GamepadService {
         return devices[id];
     }
 
-    onGamepad() {
+    onGamepad() {        
         if(!this.player1Device.isGamepad) return;
 
         var gp = this.getSystemDevice(this.player1Device);
@@ -108,7 +108,7 @@ export class GamepadService {
     private getSystemDevice(device: InputDevice) {
         var gamepads = navigator.getGamepads();
         for(var i = 0; i < gamepads.length; ++i) {
-            if(gamepads[i].id == device.name) return gamepads[i];
+            if(gamepads[i] != null && gamepads[i].id == device.name) return gamepads[i];
         }     
         return null;   
     }

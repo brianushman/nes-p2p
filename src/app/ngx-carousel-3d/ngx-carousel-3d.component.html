@@ -1,14 +1,5 @@
 <div class="carousel-3d-container">
-  <!--div class="carousel-3d-loader" [hidden]="!isLoading">
-      <div class="carousel-3d-loader-circle"></div>
-      <div class="carousel-3d-loader-percentage">{{ percentLoaded }}</div>
-  </div-->
-    <!--div class="progress">
-        <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" [attr.aria-valuenow]="percentLoaded" aria-valuemin="0" aria-valuemax ="100" style="min-width: 2em;" [style.width]="(percentLoaded/100)*100 + '%'">
-            {{ percentLoaded }}%
-        </div>
-    </div-->
-    <div  [hidden]="isLoading" [ngSwitch]="isSuccessful" >
+    <div [hidden]="isLoading" [ngSwitch]="isSuccessful" >
         <div #carousel3D class="carousel-3d" [hidden]="!isRendered && !isSuccessful">
             <ng-content></ng-content>
         </div>
