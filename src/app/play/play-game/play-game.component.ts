@@ -148,16 +148,13 @@ export class PlayGameComponent implements OnInit, OnDestroy, AfterViewInit {
       var settings = JSON.parse(data);
       this.gsService.updateChatSettings(new ChatSettings({ video: settings.video==1, audio: settings.audio==1 }));
     }
-    else if(cmd === "quit") {
-      this.ngOnDestroy();
-      
+    else if(cmd === "quit") {      
       new NesModal({
         showDismissButton: true,
         title: `Game Ended! ${this.game_details.remote_user().username} has quit the game. You will now be returned to the lobby.`,
         onCancel: () => {
-          this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-          this.router.onSameUrlNavigation = 'reload';
-          this.router.navigateByUrl(`/lobby?username=${this.game_details.local_user_name}`);
+          this.conn_data.send("quit");
+          window.location.href = `/lobby?username=${this.game_details.local_user_name}`;
         }
       }).open();
     }
@@ -176,7 +173,7 @@ export class PlayGameComponent implements OnInit, OnDestroy, AfterViewInit {
     }
     else {
       this.conn_data.send("quit");
-      this.router.navigateByUrl('/lobby');
+      window.location.href = `/lobby?username=${this.game_details.local_user_name}`;
     }
   }
 

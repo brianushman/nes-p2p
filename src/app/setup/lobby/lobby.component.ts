@@ -68,12 +68,12 @@ export class LobbyComponent implements OnInit, OnDestroy, AfterViewInit {
       }
     });
 
-    this.gdService.details.subscribe(data => {
+    /*this.gdService.details.subscribe(data => {
       if(data != undefined) {
         this.username = data.local_user_name;
         this.join();
       }
-    });
+    });*/
 
     this.username = this.route.snapshot.queryParamMap.get("username");
     if(this.username != null && this.username.length > 0) {
@@ -102,12 +102,7 @@ export class LobbyComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   join() {
-    //this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-    //this.router.onSameUrlNavigation = 'reload';
-    this.router.navigateByUrl(`/lobby?username=${this.username}`);
-    this.lobby_active = true;
-    this.send_message(new LobbyMessage({ message_id: LobbyMessageEnum.LobbyUser, data: this.current_user() }));
-    this.send_message(new LobbyMessage({ message_id: LobbyMessageEnum.RequestStatus}));
+    window.location.href = `/lobby?username=${this.username}`;
   }
 
   rebroadcast() {
