@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import * as io from 'socket.io-client';
+import { Socket } from 'ngx-socket-io';
 import { Observable, Subject } from 'rxjs';
 import * as Rx from 'rxjs/Rx';
 
@@ -9,9 +9,8 @@ import { environment } from '../../environments/environment';
 export class NotificationService {
 
   private id: string;
-  private socket;
 
-  constructor() {
+  constructor(private socket: Socket) {
     this.id = this.generate_id();
   }
 
@@ -19,7 +18,19 @@ export class NotificationService {
       return this.id;
   }
 
-  connect(): any {
+  public recvMessages = () => {
+    return Observable.create((observer) => {
+      this.socket.on('message', (message) => {
+          observer.next(message);
+      });
+    });
+  }
+
+  public sendMessage(message) {
+    this.socket.emit('message', message);
+  }
+
+  /*connect(): any {
     if(environment.production) {
       this.socket = io(environment.socketio, { secure: true, reconnect: true, rejectUnauthorized : false });
     }
@@ -51,7 +62,7 @@ export class NotificationService {
     // we return our Rx.Subject which is a combination
     // of both an observer and observable.
     return Subject.create(observer, observable);
-  }
+  }*/
 
   disconnect() {
     this.socket.disconnect();

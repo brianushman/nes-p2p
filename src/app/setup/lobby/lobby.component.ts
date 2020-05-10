@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, AfterViewInit, Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { GameSelectComponent } from '../game-select/game-select.component';
 import * as io from 'socket.io-client';
@@ -34,6 +34,7 @@ export class LobbyComponent implements OnInit, OnDestroy, AfterViewInit {
 
   constructor(
     private router: Router,
+    private route: ActivatedRoute,
     private nsService: NotificationService,
     private gdService: GameDetailsService,
     private gsService: GameStateService,
@@ -45,13 +46,8 @@ export class LobbyComponent implements OnInit, OnDestroy, AfterViewInit {
   ngOnInit() {
     this.peerConnMgrService.onInit();
 
-    this.messages = <Subject<any>>this.nsService
-    .connect()
-    .map((response: any): any => {
-      return response;
-    });
-
-    this.messages.subscribe((msg: LobbyMessage) => {
+    this.nsService.recvMessages().subscribe((msg: LobbyMessage) => {
+      console.log(`Received Lobby Message: ${msg.message_id}`);
       if(!this.lobby_active || msg.socket_id == this.nsService.get_id()) return;
       switch(msg.message_id) {
         case LobbyMessageEnum.LobbyUser:
@@ -78,6 +74,14 @@ export class LobbyComponent implements OnInit, OnDestroy, AfterViewInit {
         this.join();
       }
     });
+
+    this.username = this.route.snapshot.queryParamMap.get("username");
+    if(this.username != null && this.username.length > 0) {
+      console.log(`Activating Lobby with user "${this.current_user().username}"`);
+      this.lobby_active = true;
+      this.send_message(new LobbyMessage({ message_id: LobbyMessageEnum.LobbyUser, data: this.current_user() }));
+      this.send_message(new LobbyMessage({ message_id: LobbyMessageEnum.RequestStatus}));
+    }
   }
 
   ngAfterViewInit() {
@@ -94,10 +98,13 @@ export class LobbyComponent implements OnInit, OnDestroy, AfterViewInit {
   send_message(msg: LobbyMessage) {
     msg.sender = this.current_user();
     msg.socket_id = this.nsService.get_id();
-    this.messages.next(msg);
+    this.nsService.sendMessage(msg);
   }
 
   join() {
+    //this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    //this.router.onSameUrlNavigation = 'reload';
+    this.router.navigateByUrl(`/lobby?username=${this.username}`);
     this.lobby_active = true;
     this.send_message(new LobbyMessage({ message_id: LobbyMessageEnum.LobbyUser, data: this.current_user() }));
     this.send_message(new LobbyMessage({ message_id: LobbyMessageEnum.RequestStatus}));

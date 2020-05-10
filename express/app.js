@@ -1,11 +1,17 @@
-var express = require('express');
-var http = require('http').createServer(app);
+const express = require('express')
+const app = express();
+
+const http = require('http');
+const server = http.Server(app);
+
+const socketIO = require('socket.io');
+const io = socketIO(server);
+
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var io = require('socket.io')(http);
 var PeerServer = require('peer').PeerServer;
 
 var index = require('./routes/index');
@@ -13,7 +19,8 @@ var users = require('./routes/users');
 var mail = require('./routes/mail');
 
 var mysql = require('mysql');
-var app = express();
+
+const port = process.env.PORT || 5000;
 
 // Socket.IO
 io.on('connection', (socket) => {
@@ -25,12 +32,16 @@ io.on('connection', (socket) => {
     io.emit('message', message);    
   });
 });
-http.listen(5000, () => {
-  console.log('started on port 5000');
+
+server.listen(port, () => {
+  console.log(`started on port ${port}`);
 });
 
+var appServer = http.createServer(app);
+appServer.listen(3000);
+
 // Peer.js Server
-var server = PeerServer({
+PeerServer({
   port: 9000,
   path: '/nes'
 });

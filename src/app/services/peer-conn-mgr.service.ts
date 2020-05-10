@@ -54,19 +54,19 @@ export class PeerConnectionMgrService {
     this.peer_cam = new Peer(this.key_cam, { config: config, host: environment.peerjs_url, port: environment.peerjs_port, path: environment.peerjs_path });
 
     // listen for all data connections
-    this.peer_data.on('connection', function (conn) {
+    this.peer_data.on('connection', conn => {
       conn.on('data', data => {
         this.onDataReceived(data);
       });
     });
 
     // listen for all game connections
-    this.peer_game.on('call', function(call) {
+    this.peer_game.on('call', call => {
       this.onGameReceived(call);
     });
 
     // listen for all webcam connections
-    this.peer_cam.on('call', function(call) {
+    this.peer_cam.on('call', call => {
       this.onCamReceived(call);
     });
   }
