@@ -68,13 +68,6 @@ export class LobbyComponent implements OnInit, OnDestroy, AfterViewInit {
       }
     });
 
-    /*this.gdService.details.subscribe(data => {
-      if(data != undefined) {
-        this.username = data.local_user_name;
-        this.join();
-      }
-    });*/
-
     this.username = this.route.snapshot.queryParamMap.get("username");
     if(this.username != null && this.username.length > 0) {
       console.log(`Activating Lobby with user "${this.current_user().username}"`);
