@@ -21,6 +21,6 @@
     "nodemailer-express-handlebars": "^2.0.0",
     "peer": "^0.2.8",
     "serve-favicon": "~2.4.5",
-    "socket.io": "^2.0.4"
+    "socket.io": "^2.4.0"
   }
 }
