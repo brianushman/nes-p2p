@@ -38,7 +38,7 @@
     "peerjs": "^0.3.14",
     "ringbufferjs": "^1.1.0",
     "rxjs": "^5.5.2",
-    "socket.io": "^2.0.4",
+    "socket.io": "^2.4.0",
     "sweetalert2": "^7.9.2",
     "timers": "^0.1.1",
     "zone.js": "^0.8.14"
