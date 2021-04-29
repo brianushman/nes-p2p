@@ -1,23 +1,75 @@
-dist/
-node_modules/
-roms/
-covers/
-express/preview/
+# See http://help.github.com/ignore-files/ for more about ignoring files.
 
-# User-specific files
-*.suo
-*.user
-*.userosscache
-*.sln.docstates
+# compiled output
+/dist
+/tmp
+/out-tsc
+/src/assets/covers-deploy
+/src/assets/roms-deploy
+/src/assets/covers
+/src/assets/roms
+# Only exists if Bazel was run
+/bazel-out
 
-# User-specific files (MonoDevelop/Xamarin Studio)
-*.userprefs
+# dependencies
+/node_modules
+/express/node_modules
 
-# Build results
-x64/
-x86/
-bld/
-bin/
-obj/
-[Ll]og/
-.vs/
+# profiling files
+chrome-profiler-events*.json
+speed-measure-plugin*.json
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+# System Files
+.DS_Store
+Thumbs.db
+tools/HashAssets/.vs/HashAssets/v14/.suo
+tools/HashAssets/.vs/HashAssets/v15/.suo
+tools/HashAssets/.vs/HashAssets/v15/Server/sqlite3/db.lock
+tools/HashAssets/.vs/HashAssets/v15/Server/sqlite3/storage.ide
+tools/HashAssets/.vs/HashAssets/v15/Server/sqlite3/storage.ide-shm
+tools/HashAssets/.vs/HashAssets/v15/Server/sqlite3/storage.ide-wal
+tools/HashAssets/HashAssets/bin/Debug/HashAssets.exe
+tools/HashAssets/HashAssets/bin/Debug/HashAssets.pdb
+tools/HashAssets/HashAssets/bin/Debug/HashAssets.vshost.exe
+tools/HashAssets/HashAssets/bin/Debug/HashAssets.vshost.exe.config
+tools/HashAssets/HashAssets/bin/Debug/HashAssets.vshost.exe.manifest
+tools/HashAssets/HashAssets/obj/Debug/TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs
+.gitignore
+tools/HashAssets/HashAssets/obj/Debug/TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs
+tools/HashAssets/HashAssets/obj/Debug/TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs
+tools/HashAssets/HashAssets/obj/Debug/HashAssets.exe
+tools/HashAssets/HashAssets/obj/Debug/HashAssets.pdb
+tools/HashAssets/HashAssets/obj/Debug/HashAssets.csproj.CopyComplete
+tools/HashAssets/HashAssets/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+tools/HashAssets/HashAssets/obj/Debug/HashAssets.csproj.CoreCompileInputs.cache
+tools/HashAssets/HashAssets/obj/Debug/HashAssets.csproj.FileListAbsolute.txt
+tools/HashAssets/HashAssets/obj/Debug/HashAssets.csprojAssemblyReference.cache
+tools/HashAssets/HashAssets/bin/Debug/MySql.Data.dll
+tools/HashAssets/HashAssets/bin/Debug/MySql.Data.xml

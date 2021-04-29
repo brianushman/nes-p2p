@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { Renderer2, Component, OnInit, AfterViewInit, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 

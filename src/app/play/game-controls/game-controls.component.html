@@ -1,14 +1,14 @@
 <button type="button" class="btn btn-lg btn-primary" (click)="quit.emit()"><i class="glyphicon glyphicon-hand-left"></i>&nbsp;Quit Game</button>
-<button type="button" class="btn btn-lg btn-primary pull-right" (click)="volume_on = !volume_on; muted.emit(volume_on);"><i class="glyphicon" [ngClass]="volume_on ? 'glyphicon glyphicon-volume-up' : 'glyphicon glyphicon-volume-off'"></i></button>
+<button type="button" class="btn btn-lg btn-primary pull-right" (click)="volume_on = !volume_on; muted.emit(volume_on);"><i class="glyphicon" [ngClass]="volume_on ? 'fas fa-volume-up' : 'fas fa-volume-off'"></i></button>
 <button type="button" class="btn btn-lg btn-primary pull-right" (click)="expanded = !expanded; fullscreen.emit(expanded);"><i [ngClass]="expanded ? 'fas fa-compress' : 'fas fa-expand'"></i></button>
 <button type="button" class="btn btn-lg btn-primary pull-right" [popover]="myPopover"><i class="fas fa-keyboard"></i></button>
 
 <popover-content #myPopover
     [closeOnClickOutside]="true">
-    <ul class="list-group inline-block">
+    <!--ul class="list-group inline-block">
         <li class="list-group-item inline-block" *ngFor="let key of buttonList()">
             <span class="pull-left">{{buttonKeyName(key)}}</span>
             <span class="pull-right">{{buttonValue(key)}}</span>
         </li>
-    </ul>
+    </ul-->
 </popover-content>

@@ -21,7 +21,7 @@ namespace HashAssets
             sql = new MySql(ConfigurationManager.AppSettings["SqlServer"],
                             ConfigurationManager.AppSettings["SqlDatabase"],
                             ConfigurationManager.AppSettings["SqlUsername"]);
-            sql.Connect();
+            if (!sql.Connect()) throw new Exception("Invalid MySQL password.");
 
             if (!sql.RemoveAllRoms()) throw new Exception("Unable to remove existing roms from database");
             DeleteAllFiles(ConfigurationManager.AppSettings["DestinationCoversDirectory"]);

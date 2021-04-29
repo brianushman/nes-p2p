@@ -1,5 +1,5 @@
 /* Import main Inspinia style */
-@import "assets/styles/style";
+@import "./assets/styles/style";
 
 @font-face {
     font-family: 'nes';
@@ -27,6 +27,10 @@ body, html {
 
 .swal2-top {
     padding-top: 0 !important;
+}
+
+.swal2-title {
+    font-size: 1.375em !important;
 }
 
 .swal-toaster {

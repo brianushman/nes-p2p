@@ -1,10 +1,11 @@
 <toaster-container></toaster-container>
 <div class="col-sm-12" style="margin: 20px 0">
   <div class="col-sm-12" *ngIf="!lobby_active">
-    <div class="col-sm-12" style="margin-bottom: 15px; text-align: center;">
-      <label>Enter a User Name</label>
-      <input type="text" [(ngModel)]="username">
-      <button type="button" class="btn btn-md btn-primary" (click)="join()" [disabled]="username == undefined || username.length == 0">Join Lobby</button>
+    <div class="input-group" style="margin: 0 auto; width: 40%">
+      <input class="form-control" type="text" [(ngModel)]="username" placeholder="Enter a User Name">
+      <div class="input-group-append">
+        <button type="button" class="btn btn-md btn-primary" (click)="join()" [disabled]="username == undefined || username.length == 0">Join Lobby</button>
+      </div>
     </div>
   </div>
   <div class="col-sm-12" *ngIf="lobby_active">
@@ -29,6 +30,6 @@
     </div>
   </div>
   <div class="col-sm-12" *ngIf="!lobby_active" style="text-align: center">
-    <p>Enter a username above and click the "Join Lobby" button to find other players.</p>
+    <h4>Enter a username above and click the "Join Lobby" button to find other players.</h4>
   </div>
 </div>

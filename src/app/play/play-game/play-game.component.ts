@@ -57,7 +57,8 @@ export class PlayGameComponent implements OnInit, OnDestroy, AfterViewInit {
     this.isHost = this.isOffline || (this.game_details.requester == this.game_details.local_user());
     if(!this.isOffline) {
       this.conn_data = this.peerConnMgrService.GetPeer(ConnectionType.DATA).connect(this.game_details.remote_user().data_peer_id);
-      this.dataReceivedSubscription = this.peerConnMgrService.dataReceived.skip(1).subscribe(this.onReceived.bind(this));
+      //this.dataReceivedSubscription = this.peerConnMgrService.dataReceived.skip(1).subscribe(this.onReceived.bind(this));
+      this.dataReceivedSubscription = this.peerConnMgrService.dataReceived.subscribe(this.onReceived.bind(this));
     }
   }
 
@@ -104,9 +105,11 @@ export class PlayGameComponent implements OnInit, OnDestroy, AfterViewInit {
     if(alltracks.length > 0) {
       stream.addTrack(alltracks[0]);
     }
-    call.answer(stream);
-    call.on('stream', function(remoteStream) {
-    });
+    if(call != undefined && call != "") {
+      call.answer(stream);
+      call.on('stream', function(remoteStream) {
+      });
+    }
   }
 
   play() {
@@ -145,11 +148,14 @@ export class PlayGameComponent implements OnInit, OnDestroy, AfterViewInit {
       var settings = JSON.parse(data);
       this.gsService.updateChatSettings(new ChatSettings({ video: settings.video==1, audio: settings.audio==1 }));
     }
-    else if(cmd === "quit") {
+    else if(cmd === "quit") {      
       new NesModal({
         showDismissButton: true,
-        title: `Game Ended! ${this.game_details.remote_user().username} has quit the game. You will now be returned to the lobby to play a new game.`,
-        onCancel: () => {  this.router.navigateByUrl('/lobby'); }
+        title: `Game Ended! ${this.game_details.remote_user().username} has quit the game. You will now be returned to the lobby.`,
+        onCancel: () => {
+          this.conn_data.send("quit");
+          window.location.href = `/lobby?username=${this.game_details.local_user_name}`;
+        }
       }).open();
     }
   };
@@ -167,7 +173,7 @@ export class PlayGameComponent implements OnInit, OnDestroy, AfterViewInit {
     }
     else {
       this.conn_data.send("quit");
-      this.router.navigateByUrl('/lobby');
+      window.location.href = `/lobby?username=${this.game_details.local_user_name}`;
     }
   }
 

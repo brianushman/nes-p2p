@@ -1,4 +1,3 @@
-import { Component, Inject } from '@angular/core';
 var RingBuffer = require('ringbufferjs');
 
 export default class Speakers {
@@ -16,11 +15,23 @@ export default class Speakers {
         this.onBufferUnderrun = onBufferUnderrun;
     }
 
+    getSampleRate() {
+        return 44100;
+        /*if (!window.AudioContext) {
+          return 44100;
+        }
+        let myCtx = new window.AudioContext();
+        let sampleRate = myCtx.sampleRate;
+        myCtx.close();
+        return sampleRate;*/
+    }
+
     start() {
         let ctx = (window as any).AudioContext;
         
         // Audio is not supported
         if (!ctx) {
+            console.log('Audio Is Not Supported!');
             return;
         }
         this.audioCtx = new ctx();
@@ -51,6 +62,7 @@ export default class Speakers {
     writeSample = (left, right) => {
         if (this.buffer.size() / 2 >= this.bufferSize) {
             console.log(`Buffer overrun`);
+            this.buffer.deqN(this.bufferSize / 2);
         }
         this.buffer.enq(left);
         this.buffer.enq(right);

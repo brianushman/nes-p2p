@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, AfterViewInit, Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import { Observable, Subject } from 'rxjs/Rx';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Observable, Subject } from 'rxjs';
 import { GameSelectComponent } from '../game-select/game-select.component';
 import * as io from 'socket.io-client';
 import { NesModal } from '../../app.modal';
@@ -24,16 +24,17 @@ import { environment } from '../../../environments/environment';
 export class LobbyComponent implements OnInit, OnDestroy, AfterViewInit {
 
   private socket;
-  private username: string;
+  public username: string;
   lobby_active: boolean = false;
-  private selected_rom: GameModel;
-  private selected_opponent: UserDetailModel;
+  public selected_rom: GameModel;
+  public selected_opponent: UserDetailModel;
   messages: Subject<any>;
     
   users:UserDetailModel[] = [];
 
   constructor(
     private router: Router,
+    private route: ActivatedRoute,
     private nsService: NotificationService,
     private gdService: GameDetailsService,
     private gsService: GameStateService,
@@ -45,13 +46,8 @@ export class LobbyComponent implements OnInit, OnDestroy, AfterViewInit {
   ngOnInit() {
     this.peerConnMgrService.onInit();
 
-    this.messages = <Subject<any>>this.nsService
-    .connect()
-    .map((response: any): any => {
-      return response;
-    });
-
-    this.messages.subscribe((msg: LobbyMessage) => {
+    this.nsService.recvMessages().subscribe((msg: LobbyMessage) => {
+      console.log(`Received Lobby Message: ${msg.message_id}`);
       if(!this.lobby_active || msg.socket_id == this.nsService.get_id()) return;
       switch(msg.message_id) {
         case LobbyMessageEnum.LobbyUser:
@@ -72,12 +68,13 @@ export class LobbyComponent implements OnInit, OnDestroy, AfterViewInit {
       }
     });
 
-    this.gdService.details.subscribe(data => {
-      if(data != undefined) {
-        this.username = data.local_user_name;
-        this.join();
-      }
-    });
+    this.username = this.route.snapshot.queryParamMap.get("username");
+    if(this.username != null && this.username.length > 0) {
+      console.log(`Activating Lobby with user "${this.current_user().username}"`);
+      this.lobby_active = true;
+      this.send_message(new LobbyMessage({ message_id: LobbyMessageEnum.LobbyUser, data: this.current_user() }));
+      this.send_message(new LobbyMessage({ message_id: LobbyMessageEnum.RequestStatus}));
+    }
   }
 
   ngAfterViewInit() {
@@ -94,13 +91,11 @@ export class LobbyComponent implements OnInit, OnDestroy, AfterViewInit {
   send_message(msg: LobbyMessage) {
     msg.sender = this.current_user();
     msg.socket_id = this.nsService.get_id();
-    this.messages.next(msg);
+    this.nsService.sendMessage(msg);
   }
 
   join() {
-    this.lobby_active = true;
-    this.send_message(new LobbyMessage({ message_id: LobbyMessageEnum.LobbyUser, data: this.current_user() }));
-    this.send_message(new LobbyMessage({ message_id: LobbyMessageEnum.RequestStatus}));
+    window.location.href = `/lobby?username=${this.username}`;
   }
 
   rebroadcast() {

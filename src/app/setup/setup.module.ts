@@ -8,7 +8,6 @@ import { NgxCarousel3dModule }  from '../ngx-carousel-3d/ngx-carousel-3d.module'
 
 import { GameModeSelectComponent } from './game-mode-select/game-mode-select.component';
 import { GameSelectComponent } from './game-select/game-select.component';
-import { ControlMappingsComponent } from './control-mappings/control-mappings.component';
 import { LobbyComponent } from './lobby/lobby.component';
 
 import { CommonNesModule } from '../common-nes/common-nes.module';
@@ -33,7 +32,6 @@ import { OfflineLobbyComponent } from './offline-lobby/offline-lobby.component';
   declarations: [
     GameModeSelectComponent,
     GameSelectComponent,
-    ControlMappingsComponent,
     LobbyComponent,
     OfflineLobbyComponent
   ],

@@ -200,12 +200,6 @@ body.landing-page {
     height: 470px;
     width: 100%;
   }
-  .header-back.one {
-    background: image-url("landing/header_one.jpg")  50% 0 no-repeat;
-  }
-  .header-back.two {
-    background: image-url("landing/header_two.jpg") 50% 0 no-repeat;
-  }
   /* CUSTOMIZE THE CAROUSEL
   -------------------------------------------------- */
   /* Carousel base class */
@@ -409,12 +403,6 @@ body.landing-page {
     font-size: 22px;
     font-weight: 600;
   }
-  .testimonials {
-    padding-top: 80px;
-    padding-bottom: 90px;
-    background-color: $navy;
-    background-image: image-url("landing/avatar_all.png");
-  }
   .big-icon {
     font-size: 56px !important;
   }
@@ -422,7 +410,6 @@ body.landing-page {
     color: $navy !important;
   }
   .contact {
-    background-image: image-url("landing/word_map.png");
     background-position: 50% 50%;
     background-repeat: no-repeat;
     margin-top: 60px;

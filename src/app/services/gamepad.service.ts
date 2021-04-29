@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Observable } from 'rxjs/Rx';
-import { CookieService, CookieOptions } from 'ngx-cookie';
+import { BehaviorSubject, Observable, interval } from 'rxjs';
+import { CookieService } from 'ngx-cookie-service';
 
 import { Controller } from "jsnes";
 
@@ -53,7 +52,7 @@ export class GamepadService {
             this.gamepadHash.push(false);
         }
 
-        this.scanTimer = Observable.interval(100);
+        this.scanTimer = interval(100);
         this.scanTimer.subscribe(x => { this.onGamepad() });
     }
 
@@ -70,7 +69,7 @@ export class GamepadService {
         return devices[id];
     }
 
-    onGamepad() {
+    onGamepad() {        
         if(!this.player1Device.isGamepad) return;
 
         var gp = this.getSystemDevice(this.player1Device);
@@ -109,7 +108,7 @@ export class GamepadService {
     private getSystemDevice(device: InputDevice) {
         var gamepads = navigator.getGamepads();
         for(var i = 0; i < gamepads.length; ++i) {
-            if(gamepads[i].id == device.name) return gamepads[i];
+            if(gamepads[i] != null && gamepads[i].id == device.name) return gamepads[i];
         }     
         return null;   
     }
@@ -138,8 +137,8 @@ export class InputDevice {
 export class InputMapping {
     private mapping: any = {};
     public gamepadMap = {
-        0: Controller.BUTTON_A,
-        1: Controller.BUTTON_B,
+        0: Controller.BUTTON_B,
+        1: Controller.BUTTON_A,
         8: Controller.BUTTON_SELECT,
         9: Controller.BUTTON_START,
         12: Controller.BUTTON_UP,
@@ -343,7 +342,7 @@ export class InputMapping {
 
     public constructor(cookieService: CookieService) {
         var savedMapping = cookieService.get("nesp2p-controller-mapping");
-        if(savedMapping == undefined) return;
+        if(savedMapping == undefined || savedMapping.length == 0) return;
         this.keyboardMap = JSON.parse(savedMapping);
     }
 
